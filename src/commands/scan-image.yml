@@ -57,5 +57,5 @@ steps:
         echo "Extracting Trivy v${TRIVY_VERSION}"
         tar zxvf trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 
-        ./trivy --exit-code 0 --severity << parameters.acceptable-severity-levels >> --no-progress stackfintech/<< parameters.image-name >>:${IMAGE_TAG}
-        ./trivy --exit-code 1 --severity << parameters.unacceptable-severity-levels >> --no-progress stackfintech/<< parameters.image-name >>:${IMAGE_TAG}
+        ./trivy image --exit-code 0 --severity << parameters.acceptable-severity-levels >> --no-progress stackfintech/<< parameters.image-name >>:${IMAGE_TAG}
+        ./trivy image --exit-code 1 --severity << parameters.unacceptable-severity-levels >> --no-progress stackfintech/<< parameters.image-name >>:${IMAGE_TAG}
